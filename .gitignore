@@ -1,0 +1,21 @@
+# Build outputs
+bin/
+obj/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# User secrets
+appsettings.Development.json
+*.user
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.suo
+
+# Logs
+*.log

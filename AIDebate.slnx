@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AIDebate.Api/AIDebate.Api.csproj" />
+  <Project Path="AIDebate.Tests/AIDebate.Tests.csproj" />
+</Solution>
