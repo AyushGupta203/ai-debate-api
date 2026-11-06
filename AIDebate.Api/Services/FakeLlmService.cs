@@ -12,7 +12,7 @@ public class FakeLlmService : ILlmService
         if (systemPrompt.Contains("CON debater", StringComparison.OrdinalIgnoreCase))
         {
             return Task.FromResult("CON: Centralized regulation kills innovation.");
-        }
+        } 
 
         // Judge
         return Task.FromResult(@"{
