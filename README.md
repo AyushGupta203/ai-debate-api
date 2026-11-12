@@ -1,20 +1,23 @@
-# ⚖️ AI Debate API
+# ⚖️ AI Decision Helper (Multi-Agent Arena)
 
-An end-to-end AI orchestration system built with **ASP.NET Core**, where two AI agents (PRO and CON) debate on a given topic, and an impartial AI Judge evaluates the arguments to deliver a structured verdict.
+An end-to-end Multi-Agent AI system built with **ASP.NET Core**, where multiple AI models (PRO, CON, CRITIC, and ADVISOR) debate on a given topic to help users clear their thoughts and make better decisions.
 
 ## 🚀 Tech Stack
 - **Framework:** .NET 10 (ASP.NET Core Web API)
 - **Database:** SQLite (via Entity Framework Core)
-- **Architecture:** Layered Architecture (Controllers, Services, DTOs, Models)
-- **AI Integration:** Prompt Engineering, JSON structured output parsing
-- **Tools:** Swagger UI, Git, xUnit (planned)
+- **Architecture:** Layered Architecture (Controllers, Services, DTOs, Models), Strategy Pattern (Smart Router)
+- **AI Integration:** Prompt Engineering, Groq API, OpenRouter API
+- **Testing:** xUnit, Moq, FluentAssertions (Implemented)
+- **Tools:** Swagger UI, Git, HTML/JS Frontend
 
 ## ✨ Features
-- **Debate Orchestration:** Automatically triggers PRO and CON arguments based on the user's question.
-- **AI Judge:** Evaluates the debate and returns a structured JSON verdict (Outcome, Summary, Confidence Score).
-- **Graceful Parsing:** Robust JSON parsing for LLM outputs with case-insensitive matching.
-- **Data Persistence:** Saves the debate, turns, and verdict securely in SQLite.
-- **Clean API Design:** Uses DTOs (Data Transfer Objects) to prevent over-posting and expose only relevant data.
+- **Multi-Agent Architecture:** Orchestrates 4 distinct AI roles (PRO, CON, CRITIC, and ADVISOR).
+- **Parallel Execution:** PRO and CON agents run concurrently using `Task.WhenAll` to reduce latency by 50%.
+- **Smart Routing & Prompt Caching:** Optimizes API calls and structures prompts to leverage Groq's automatic prompt caching for faster responses.
+- **Natural Language Decision Helper:** Instead of a rigid "Judge", the AI acts as a Decision Advisor, providing nuanced advice, a confidence score out of 10, and a disclaimer.
+- **Structured Summarization:** Automatically parses AI responses to separate the detailed argument from a short 2-3 sentence summary for quick reading.
+- **Data Persistence:** Saves the debate, turns (with summaries), and final advisor verdict securely in SQLite.
+- **Frontend UI:** Includes a clean HTML/JS interface to interact with the API visually.
 
 ## 📡 API Endpoints
 
@@ -23,5 +26,5 @@ An end-to-end AI orchestration system built with **ASP.NET Core**, where two AI 
 **Request Body:**
 ```json
 {
-  "question": "Should AI be regulated?"
+  "question": "Is remote work better than office work?"
 }
