@@ -15,7 +15,7 @@ namespace AIDebate.Api.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.13");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.14");
 
             modelBuilder.Entity("AIDebate.Api.Models.Debate", b =>
                 {
@@ -65,6 +65,10 @@ namespace AIDebate.Api.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Side")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Summary")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

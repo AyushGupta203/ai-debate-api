@@ -10,7 +10,13 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(option=>option.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 
-builder.Services.AddScoped<ILlmService, FakeLlmService>();
+
+builder.Services.AddHttpClient<GroqLlmService>();
+builder.Services.AddHttpClient<OpenRouterLlmService>();
+builder.Services.AddScoped<ILlmService, ArenaRouterService>();
+
+
+
 builder.Services.AddScoped<DebateOrchestrator>();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -20,8 +26,8 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
 app.MapControllers();
